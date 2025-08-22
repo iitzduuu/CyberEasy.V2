@@ -4,7 +4,7 @@ import time
 st.title('CYBEREASY')  # nome pode ser alterado
 st.write('Welcome to cybereasy')
 
-uploader_file = st.file_uploader("Drag a probably malicious file here")  # caixa para selecionar arquivo
+uploader_file = st.file_uploader('Drag a probably malicious file here')  # caixa para selecionar arquivo
 
 if uploader_file is not None:
     if st.button('Analyze file'):
