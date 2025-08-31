@@ -1,0 +1,3 @@
+O relatório de vendas do mês foi entregue ao gerente. 
+Todos os números estão corretos e não há anomalias nos dados. 
+Foi detectado um trojan em um dos computadores do setor financeiro.
