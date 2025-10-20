@@ -7,9 +7,9 @@ def load_yara_rules(rules_path):
     rules_path é o caminho para o diretorio que vai ter as regras
     """
     if not os.path.isdir(rules_path):
-        print(f"❌ Erro: O diretório de regras '{rules_path}' não foi encontrado.")
+        print(f"erro: O diretório de regras '{rules_path}' não foi encontrado.")
         return None
-    print(f"🔎 Procurando por regras em: {os.path.abspath(rules_path)}") 
+    print(f"procurando por regras em: {os.path.abspath(rules_path)}") 
     rule_filepaths = {}
     # usa os(bibliteca os).walk para encontrar os arquivos - namespace
     for root, _, files in os.walk(rules_path):
@@ -22,15 +22,15 @@ def load_yara_rules(rules_path):
                 print(f"  - Encontrado: {filepath} (namespace: '{namespace}')")
 
     if not rule_filepaths:
-        print("⚠️Nenhum arquivo de regra yara encontrado.")
+        print(" nenhum arquivo de regra yara encontrado.")
         return yara.compile(source='rule placeholder { condition: true }')
     try:
         print("compilando regras...")
         rules = yara.compile(filepaths=rule_filepaths)
-        print("✅ regras compiladas com sucesso!")
+        print("regras compiladas com sucesso!")
         return rules
     except yara.Error as e:
-        print(f"\n❌ erro de compilação em uma regra YARA: {e}")
+        print(f"\n erro de compilação em uma regra YARA: {e}")
         print("por favor, verifique a sintaxe dos seus arquivos de regra.")
         return None
     
